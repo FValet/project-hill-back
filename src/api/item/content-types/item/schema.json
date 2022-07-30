@@ -8,7 +8,11 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": false,
+    "privateAttributes": [
+      "created_at",
+      "updated_at"
+    ]
   },
   "pluginOptions": {},
   "attributes": {
