@@ -1,7 +1,7 @@
 module.exports = {
   routes: [
     {
-      method: 'GET',
+      method: 'PUT',
       path: '/script/stage-fight/:area/:stage',
       handler: 'script.stageFight',
       config: {
