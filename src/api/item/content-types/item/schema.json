@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "singularName": "item",
+    "pluralName": "items",
+    "displayName": "item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "other",
+        "head",
+        "shoulders",
+        "torso",
+        "belt",
+        "glove",
+        "pant",
+        "boot",
+        "weapon",
+        "necklace",
+        "ring"
+      ],
+      "required": true,
+      "default": "other"
+    },
+    "consumable": {
+      "type": "boolean",
+      "required": true
+    },
+    "drop_rate": {
+      "type": "decimal"
+    },
+    "purchase_price": {
+      "type": "biginteger",
+      "required": true,
+      "max": "1000000",
+      "min": "1",
+      "default": "1"
+    },
+    "selling_price": {
+      "type": "biginteger",
+      "default": "1",
+      "required": true,
+      "max": "1000000",
+      "min": "1"
+    }
+  }
+}
