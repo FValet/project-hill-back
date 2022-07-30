@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_feature_stages",
+  "info": {
+    "displayName": "stage",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "unlocked": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "opponents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::opponent.opponent"
+    },
+    "opponents_strength": {
+      "type": "decimal",
+      "min": 1,
+      "required": true,
+      "default": 1
+    },
+    "award": {
+      "type": "component",
+      "repeatable": true,
+      "component": "feature.award",
+      "required": true
+    }
+  }
+}

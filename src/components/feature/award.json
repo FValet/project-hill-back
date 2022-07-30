@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_feature_awards",
+  "info": {
+    "displayName": "award",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "money": {
+      "type": "integer",
+      "min": 1,
+      "required": true,
+      "default": 1
+    },
+    "xp": {
+      "type": "biginteger"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "feature.inventory-item"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "areas",
+  "info": {
+    "singularName": "area",
+    "pluralName": "areas",
+    "displayName": "area",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "unlocked": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "stages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "feature.stage",
+      "required": true
+    },
+    "boss": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::opponent.opponent"
+    }
+  }
+}
