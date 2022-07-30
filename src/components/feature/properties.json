@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_feature_properties",
+  "info": {
+    "displayName": "properties",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 24,
+      "minLength": 2
+    },
+    "level": {
+      "type": "integer",
+      "default": 1,
+      "min": 1,
+      "max": 100,
+      "required": true
+    },
+    "statistics": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "feature.statistics"
+    },
+    "resistances": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "feature.resistances"
+    },
+    "weaknesses": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "feature.weaknesses"
+    }
+  }
+}
