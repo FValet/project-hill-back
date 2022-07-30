@@ -35,11 +35,6 @@
       "repeatable": true,
       "component": "feature.stage",
       "required": true
-    },
-    "boss": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::opponent.opponent"
     }
   }
 }

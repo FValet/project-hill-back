@@ -7,6 +7,13 @@
   },
   "options": {},
   "attributes": {
+    "max_heal_point": {
+      "type": "integer",
+      "default": 1,
+      "min": 1,
+      "max": 9999,
+      "required": true
+    },
     "heal_point": {
       "type": "integer",
       "required": true,

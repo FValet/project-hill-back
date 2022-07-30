@@ -7,10 +7,10 @@
   "options": {},
   "attributes": {
     "money": {
-      "type": "biginteger",
-      "default": "0",
-      "min": "0",
-      "max": "10000000",
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 10000000,
       "required": true
     },
     "inventory": {

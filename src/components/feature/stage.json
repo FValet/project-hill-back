@@ -17,6 +17,11 @@
       "default": false,
       "required": true
     },
+    "boss": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
     "opponents": {
       "type": "relation",
       "relation": "oneToMany",
@@ -30,7 +35,7 @@
     },
     "award": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "feature.award",
       "required": true
     }
