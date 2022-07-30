@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "opponents",
+  "info": {
+    "singularName": "opponent",
+    "pluralName": "opponents",
+    "displayName": "opponent"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "properties": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "feature.properties"
+    }
+  }
+}
