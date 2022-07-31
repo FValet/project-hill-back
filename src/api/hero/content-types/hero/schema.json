@@ -1,0 +1,71 @@
+{
+  "kind": "singleType",
+  "collectionName": "heroes",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "heroes",
+    "displayName": "hero",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "hero",
+      "required": true,
+      "maxLength": 24,
+      "minLength": 2
+    },
+    "level": {
+      "type": "integer",
+      "required": true,
+      "max": 99,
+      "min": 1,
+      "default": 1
+    },
+    "collected_xp": {
+      "type": "integer",
+      "required": true,
+      "max": 10000000,
+      "min": 0
+    },
+    "money": {
+      "type": "integer",
+      "max": 10000000,
+      "required": true,
+      "min": 0
+    },
+    "statistics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.statistics",
+      "required": true
+    },
+    "resistances": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.resistances",
+      "required": true
+    },
+    "weaknesses": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.weaknesses",
+      "required": true
+    },
+    "equipment": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.equipment",
+      "required": true
+    },
+    "inventory": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item.item"
+    }
+  }
+}

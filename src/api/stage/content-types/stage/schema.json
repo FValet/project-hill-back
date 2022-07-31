@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stages",
+  "info": {
+    "singularName": "stage",
+    "pluralName": "stages",
+    "displayName": "stage"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "unlocked": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "boss": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "opponents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::opponent.opponent",
+      "mappedBy": "stage"
+    },
+    "opponents_strength": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1
+    },
+    "award": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.award"
+    },
+    "area": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::area.area",
+      "inversedBy": "stages"
+    }
+  }
+}

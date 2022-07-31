@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "opponents",
+  "info": {
+    "singularName": "opponent",
+    "pluralName": "opponents",
+    "displayName": "opponent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "privateAttributes": [
+      "created_at",
+      "updated_at"
+    ]
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "statistics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.statistics",
+      "required": true
+    },
+    "resistances": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.resistances",
+      "required": true
+    },
+    "weaknesses": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.weaknesses",
+      "required": true
+    },
+    "stage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stage.stage",
+      "inversedBy": "opponents"
+    }
+  }
+}

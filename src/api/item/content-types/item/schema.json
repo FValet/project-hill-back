@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "singularName": "item",
+    "pluralName": "items",
+    "displayName": "item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false,
+    "privateAttributes": [
+      "created_at",
+      "updated_at"
+    ]
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "drop_rate": {
+      "type": "decimal"
+    },
+    "purchase_price": {
+      "type": "biginteger",
+      "required": true,
+      "max": "1000000",
+      "min": "1",
+      "default": "1"
+    },
+    "selling_price": {
+      "type": "biginteger",
+      "default": "1",
+      "required": true,
+      "max": "1000000",
+      "min": "1"
+    },
+    "inventory_quantity": {
+      "type": "integer",
+      "required": true,
+      "max": 100,
+      "min": 0
+    }
+  }
+}

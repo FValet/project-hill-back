@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_feature_awards",
+  "info": {
+    "displayName": "award",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "money": {
+      "type": "integer",
+      "min": 1,
+      "required": true,
+      "default": 1
+    },
+    "xp": {
+      "type": "integer",
+      "default": 1,
+      "min": 1,
+      "max": 1000000,
+      "required": true
+    },
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item.item"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "collectionName": "components_feature_statistics",
+  "info": {
+    "displayName": "statistics",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heal_point": {
+      "type": "integer",
+      "required": true,
+      "max": 9999,
+      "min": 1,
+      "default": 1
+    },
+    "strength": {
+      "type": "integer",
+      "required": true,
+      "max": 255,
+      "min": 1,
+      "default": 1
+    },
+    "magic": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "max": 255,
+      "min": 0
+    },
+    "defense": {
+      "type": "integer",
+      "max": 255,
+      "min": 0,
+      "required": true,
+      "default": 0
+    },
+    "magic_defense": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "max": 255,
+      "min": 0
+    },
+    "accuracy": {
+      "type": "integer",
+      "required": true,
+      "default": 10,
+      "min": 1,
+      "max": 255
+    },
+    "dodge": {
+      "type": "integer",
+      "max": 255,
+      "required": true,
+      "min": 1,
+      "default": 10
+    },
+    "critical": {
+      "type": "integer",
+      "default": 10,
+      "max": 255,
+      "required": true,
+      "min": 1
+    },
+    "haste": {
+      "type": "integer",
+      "required": true,
+      "default": 10,
+      "max": 255,
+      "min": 1
+    }
+  }
+}
