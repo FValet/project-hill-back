@@ -4,7 +4,8 @@
   "info": {
     "singularName": "opponent",
     "pluralName": "opponents",
-    "displayName": "opponent"
+    "displayName": "opponent",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false,
@@ -15,11 +16,29 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "properties": {
+    "statistics": {
       "type": "component",
       "repeatable": false,
-      "required": true,
-      "component": "feature.properties"
+      "component": "feature.statistics",
+      "required": true
+    },
+    "resistances": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.resistances",
+      "required": true
+    },
+    "weaknesses": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.weaknesses",
+      "required": true
+    },
+    "stage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stage.stage",
+      "inversedBy": "opponents"
     }
   }
 }

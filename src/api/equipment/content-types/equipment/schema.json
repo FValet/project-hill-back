@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "equipments",
+  "info": {
+    "singularName": "equipment",
+    "pluralName": "equipments",
+    "displayName": "equipment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "drop_rate": {
+      "type": "integer",
+      "required": true,
+      "max": 100,
+      "min": 0
+    },
+    "purchase_price": {
+      "type": "integer",
+      "required": true,
+      "max": 1000000,
+      "min": 0
+    },
+    "selling_price": {
+      "type": "integer",
+      "required": true,
+      "max": 1000000,
+      "min": 0
+    },
+    "inventory_quantity": {
+      "type": "integer",
+      "required": true,
+      "max": 100,
+      "min": 0
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "head",
+        "shoulders",
+        "torso",
+        "belt",
+        "gloves",
+        "pant",
+        "boot",
+        "weapon",
+        "necklace",
+        "ring",
+        "ring_2"
+      ],
+      "required": true
+    }
+  }
+}

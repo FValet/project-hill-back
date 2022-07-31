@@ -21,28 +21,6 @@
       "required": true,
       "unique": true
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "other",
-        "head",
-        "shoulders",
-        "torso",
-        "belt",
-        "glove",
-        "pant",
-        "boot",
-        "weapon",
-        "necklace",
-        "ring"
-      ],
-      "required": true,
-      "default": "other"
-    },
-    "consumable": {
-      "type": "boolean",
-      "required": true
-    },
     "drop_rate": {
       "type": "decimal"
     },
@@ -59,6 +37,12 @@
       "required": true,
       "max": "1000000",
       "min": "1"
+    },
+    "inventory_quantity": {
+      "type": "integer",
+      "required": true,
+      "max": 100,
+      "min": 0
     }
   }
 }

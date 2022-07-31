@@ -31,10 +31,10 @@
       "required": true
     },
     "stages": {
-      "type": "component",
-      "repeatable": true,
-      "component": "feature.stage",
-      "required": true
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::stage.stage",
+      "mappedBy": "area"
     }
   }
 }

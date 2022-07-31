@@ -7,26 +7,12 @@
   },
   "options": {},
   "attributes": {
-    "max_heal_point": {
-      "type": "integer",
-      "default": 1,
-      "min": 1,
-      "max": 9999,
-      "required": true
-    },
     "heal_point": {
       "type": "integer",
       "required": true,
       "max": 9999,
       "min": 1,
       "default": 1
-    },
-    "ability_point": {
-      "type": "integer",
-      "required": true,
-      "default": 0,
-      "max": 7,
-      "min": 0
     },
     "strength": {
       "type": "integer",
@@ -42,14 +28,14 @@
       "max": 255,
       "min": 0
     },
-    "defence": {
+    "defense": {
       "type": "integer",
       "max": 255,
       "min": 0,
       "required": true,
       "default": 0
     },
-    "magic_defence": {
+    "magic_defense": {
       "type": "integer",
       "required": true,
       "default": 0,
@@ -83,13 +69,6 @@
       "default": 10,
       "max": 255,
       "min": 1
-    },
-    "luck": {
-      "type": "integer",
-      "default": 0,
-      "max": 255,
-      "required": true,
-      "min": 0
     }
   }
 }

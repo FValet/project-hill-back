@@ -21,9 +21,9 @@
       "required": true
     },
     "items": {
-      "type": "component",
-      "repeatable": false,
-      "component": "feature.inventory-item"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item.item"
     }
   }
 }

@@ -1,11 +1,15 @@
 {
-  "collectionName": "components_feature_stages",
+  "kind": "collectionType",
+  "collectionName": "stages",
   "info": {
-    "displayName": "stage",
-    "icon": "ad",
-    "description": ""
+    "singularName": "stage",
+    "pluralName": "stages",
+    "displayName": "stage"
   },
-  "options": {},
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
   "attributes": {
     "unlocked": {
       "type": "boolean",
@@ -25,19 +29,25 @@
     "opponents": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::opponent.opponent"
+      "target": "api::opponent.opponent",
+      "mappedBy": "stage"
     },
     "opponents_strength": {
-      "type": "decimal",
-      "min": 1,
+      "type": "integer",
+      "default": 1,
       "required": true,
-      "default": 1
+      "min": 1
     },
     "award": {
       "type": "component",
       "repeatable": false,
-      "component": "feature.award",
-      "required": true
+      "component": "feature.award"
+    },
+    "area": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::area.area",
+      "inversedBy": "stages"
     }
   }
 }

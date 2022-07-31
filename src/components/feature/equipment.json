@@ -2,64 +2,65 @@
   "collectionName": "components_feature_equipment",
   "info": {
     "displayName": "equipment",
-    "icon": "ad"
+    "icon": "ad",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "head": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "shoulders": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "torso": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "belt": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
-    "glove": {
+    "gloves": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "pant": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "boot": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "weapon": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "necklace": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "ring": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     },
     "ring_2": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::item.item"
+      "target": "api::equipment.equipment"
     }
   }
 }
