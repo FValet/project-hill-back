@@ -21,6 +21,13 @@
       "max": 100,
       "required": true
     },
+    "collected_xp": {
+      "type": "integer",
+      "max": 1000000,
+      "min": 0,
+      "default": 0,
+      "required": true
+    },
     "statistics": {
       "type": "component",
       "repeatable": false,
