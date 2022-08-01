@@ -9,7 +9,7 @@ module.exports = {
     try {
       let area_id = parseInt(ctx.params.area)
 
-      const area = await strapi.db.query('api::area.area').findOne({ where: { id: area_id, unlocked: true }, populate: { stages: { populate: { opponents: true, award: { populate: { items: true }}}}}})
+      const area = await strapi.db.query('api::area.area').findOne({ where: { id: area_id, unlocked: true }, populate: { stages: { populate: { opponents: { populate: { opponent: { populate: { statistics: true }}}}, award: { populate: { items: true }}}}}})
 
       if (!area) ctx.body = 'area locked or not found'
       else {
@@ -20,19 +20,16 @@ module.exports = {
         else {
           const hero = await strapi.db.query('api::hero.hero').findOne({ populate: { statistics: true, resistances: true, weaknesses: true, equipment: true, inventory: true }})
 
-          // TODO: fix this to get only stages opponents
-          const opponents = await strapi.db.query('api::opponent.opponent').findMany({ id: stage.opponents, populate: { statistics: true, resistances: true, weaknesses: true }})
-
           let hero_damage = 0
           let opponents_damage = 0
           let opponents_total_heal_point = 0
 
-          for (const opponent of opponents) {
-            hero_damage += hero.statistics.strength * (100 / (100 + opponent.statistics.defense))
+          for (const opponent_group of stage.opponents) {
+            hero_damage += (hero.statistics.strength * (100 / (100 + opponent_group.opponent.statistics.defense)))
 
-            const damage = opponent.statistics.strength * stage.opponents_strength
-            opponents_damage += damage * (100 / (100 + hero.statistics.defense))
-            opponents_total_heal_point += opponent.statistics.heal_point
+            const damage = opponent_group.opponent.statistics.strength * stage.opponents_strength
+            opponents_damage += (damage * (100 / (100 + hero.statistics.defense))) * opponent_group.quantity
+            opponents_total_heal_point += opponent_group.opponent.statistics.heal_point
           }
 
           if (hero_damage >= opponents_total_heal_point) {
