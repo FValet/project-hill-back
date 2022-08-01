@@ -7,23 +7,27 @@
 module.exports = {
   stageFight: async (ctx, next) => {
     try {
+      // Get area from database with id in parameters
       let area_id = parseInt(ctx.params.area)
-
       const area = await strapi.db.query('api::area.area').findOne({ where: { id: area_id, unlocked: true }, populate: { stages: { populate: { opponents: { populate: { opponent: { populate: { statistics: true }}}}, award: { populate: { items: true }}}}}})
 
       if (!area) ctx.body = 'area locked or not found'
       else {
+        // Get stage with id in parameters
         const stage_id = parseInt(ctx.params.stage)
         const stage = area.stages.find(x => x.id === stage_id && x.unlocked === true)
 
         if (!stage) ctx.body = 'stage locked or not found'
         else {
+          // Get hero from database
           const hero = await strapi.db.query('api::hero.hero').findOne({ populate: { statistics: true, resistances: true, weaknesses: true, equipment: true, inventory: true }})
 
+          // Initializes damage variables
           let hero_damage = 0
           let opponents_damage = 0
           let opponents_total_heal_point = 0
 
+          // Damage calculation
           for (const opponent_group of stage.opponents) {
             hero_damage += (hero.statistics.strength * (100 / (100 + opponent_group.opponent.statistics.defense)))
 
@@ -32,7 +36,9 @@ module.exports = {
             opponents_total_heal_point += opponent_group.opponent.statistics.heal_point
           }
 
+          // Check if hero wins fight
           if (hero_damage >= opponents_total_heal_point) {
+            // Checks if objects is earned with drop_rate and updates earned objects in database
             const dropped_items = []
             for (const item of stage.award.items) {
               const random = Math.floor(Math.random() * 100)
@@ -42,6 +48,7 @@ module.exports = {
               }
             }
 
+            // Prepares awards for update hero in database
             const data = {
               inventory: [ ...hero.inventory.map((item) => item.id), ...dropped_items ],
               collected_xp: hero.collected_xp += stage.award.xp,
@@ -50,9 +57,9 @@ module.exports = {
               level: hero.level
             }
 
+            // If collected_xp is >= current_level xp, hero gains a level
             const { levels } = await strapi.db.query('api::levels-table.levels-table').findOne({ populate: { levels: { populate: { statistics: true }}}})
             const next_level = levels.find(x => x.level === data.level + 1)
-
             let has_level_up = false
             if (data.collected_xp >= next_level.required_xp) {
               data.collected_xp -= next_level.required_xp
@@ -69,8 +76,10 @@ module.exports = {
             }
             await strapi.db.query('api::stage.stage').update({ where: { id: stage_id + 1 }, data: { unlocked: true }})
 
-            ctx.body = `Hero wins fight, ${data.current_heal_point} hp left.${ has_level_up ? ` Awesome, Hero rises to level ${data.level} !` : ''}`
-          } else ctx.body = 'Opponents wins fight'
+            ctx.body = {
+              message: `Hero wins fight, ${data.current_heal_point} hp left.${ has_level_up ? ` Awesome, Hero rises to level ${data.level} !` : ''}`
+            }
+          } else ctx.body = { message: 'Opponents wins fight' }
         }
       }
     } catch (err) {
