@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_feature_opponents_groups",
+  "info": {
+    "displayName": "opponents_group",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "opponent": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::opponent.opponent"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "max": 5,
+      "min": 0,
+      "default": 1
+    }
+  }
+}

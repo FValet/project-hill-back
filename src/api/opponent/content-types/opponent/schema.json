@@ -38,12 +38,6 @@
       "repeatable": false,
       "component": "feature.weaknesses",
       "required": true
-    },
-    "stage": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::stage.stage",
-      "inversedBy": "opponents"
     }
   }
 }

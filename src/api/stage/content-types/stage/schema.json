@@ -4,7 +4,8 @@
   "info": {
     "singularName": "stage",
     "pluralName": "stages",
-    "displayName": "stage"
+    "displayName": "stage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -27,10 +28,10 @@
       "required": true
     },
     "opponents": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::opponent.opponent",
-      "mappedBy": "stage"
+      "type": "component",
+      "repeatable": true,
+      "component": "feature.opponents-group",
+      "required": true
     },
     "opponents_strength": {
       "type": "integer",
