@@ -36,10 +36,17 @@ module.exports = {
           }
 
           if (hero_damage >= opponents_total_heal_point) {
-            for (const item of stage.award.items) await strapi.db.query('api::item.item').update({ where: { id: item.id }, data: { inventory_quantity: item.inventory_quantity += 1 }})
+            const dropped_items = []
+            for (const item of stage.award.items) {
+              const random = Math.floor(Math.random() * 100)
+              if (item.drop_rate >= random) {
+                dropped_items.push(item.id)
+                await strapi.db.query('api::item.item').update({ where: { id: item.id }, data: { inventory_quantity: item.inventory_quantity += 1 }})
+              }
+            }
 
             const data = {
-              inventory: [ ...hero.inventory.map((item) => item.id), ...stage.award.items.map((item) => item.id) ],
+              inventory: [ ...hero.inventory.map((item) => item.id), ...dropped_items ],
               collected_xp: hero.collected_xp += stage.award.xp,
               money: hero.money += stage.award.money,
               current_heal_point: Math.round(hero.current_heal_point - opponents_damage) >= 0 ? Math.round(hero.current_heal_point - opponents_damage) : 0,
