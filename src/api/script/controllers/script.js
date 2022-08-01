@@ -38,23 +38,35 @@ module.exports = {
           if (hero_damage >= opponents_total_heal_point) {
             for (const item of stage.award.items) await strapi.db.query('api::item.item').update({ where: { id: item.id }, data: { inventory_quantity: item.inventory_quantity += 1 }})
 
-            const inventory = [ ...hero.inventory.map((item) => item.id), ...stage.award.items.map((item) => item.id) ]
-            const collected_xp = hero.collected_xp += stage.award.xp
-            const money = hero.money += stage.award.money
+            const data = {
+              inventory: [ ...hero.inventory.map((item) => item.id), ...stage.award.items.map((item) => item.id) ],
+              collected_xp: hero.collected_xp += stage.award.xp,
+              money: hero.money += stage.award.money,
+              current_heal_point: Math.round(hero.current_heal_point - opponents_damage) >= 0 ? Math.round(hero.current_heal_point - opponents_damage) : 0,
+              level: hero.level
+            }
+
+            const { levels } = await strapi.db.query('api::levels-table.levels-table').findOne({ populate: { levels: { populate: { statistics: true }}}})
+            const next_level = levels.find(x => x.level === data.level + 1)
+
+            let has_level_up = false
+            if (data.collected_xp >= next_level.required_xp) {
+              data.collected_xp -= next_level.required_xp
+              data.level += 1
+              has_level_up = true
+            }
 
             // TODO: promises
-            await strapi.db.query('api::hero.hero').update({ where: { id: hero.id }, data: { money, collected_xp, inventory }})
+            await strapi.db.query('api::hero.hero').update({ where: { id: hero.id }, data })
             await strapi.db.query('api::stage.stage').update({ where: { id: stage_id }, data: { completed: true }})
-
             if (stage.boss) {
               await strapi.db.query('api::area.area').update({ where: { id: area_id }, data: { completed: true }})
               await strapi.db.query('api::area.area').update({ where: { id: area_id + 1 }, data: { unlocked: true }})
             }
-
             await strapi.db.query('api::stage.stage').update({ where: { id: stage_id + 1 }, data: { unlocked: true }})
 
-            ctx.body = 'hero wins fight'
-          } else ctx.body = 'opponents wins fight'
+            ctx.body = `Hero wins fight, ${data.current_heal_point} hp left.${ has_level_up ? ` Awesome, Hero rises to level ${data.level} !` : ''}`
+          } else ctx.body = 'Opponents wins fight'
         }
       }
     } catch (err) {

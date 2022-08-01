@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "levels_tables",
+  "info": {
+    "singularName": "levels-table",
+    "pluralName": "levels-tables",
+    "displayName": "levels_table",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "levels": {
+      "type": "component",
+      "repeatable": true,
+      "component": "feature.level",
+      "required": true
+    }
+  }
+}

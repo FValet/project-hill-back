@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_feature_levels",
+  "info": {
+    "displayName": "level",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "level": {
+      "type": "integer",
+      "required": true,
+      "max": 100,
+      "min": 1,
+      "default": 1,
+      "unique": false
+    },
+    "required_xp": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "statistics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "feature.statistics",
+      "required": true
+    }
+  }
+}
