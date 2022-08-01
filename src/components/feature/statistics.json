@@ -11,20 +11,20 @@
       "type": "integer",
       "required": true,
       "max": 9999,
-      "min": 1,
-      "default": 1
+      "min": 0,
+      "default": 10
     },
     "strength": {
       "type": "integer",
       "required": true,
       "max": 255,
-      "min": 1,
-      "default": 1
+      "min": 0,
+      "default": 10
     },
     "magic": {
       "type": "integer",
       "required": true,
-      "default": 0,
+      "default": 10,
       "max": 255,
       "min": 0
     },
@@ -33,12 +33,12 @@
       "max": 255,
       "min": 0,
       "required": true,
-      "default": 0
+      "default": 10
     },
     "magic_defense": {
       "type": "integer",
       "required": true,
-      "default": 0,
+      "default": 10,
       "max": 255,
       "min": 0
     },
@@ -46,14 +46,14 @@
       "type": "integer",
       "required": true,
       "default": 10,
-      "min": 1,
+      "min": 0,
       "max": 255
     },
     "dodge": {
       "type": "integer",
       "max": 255,
       "required": true,
-      "min": 1,
+      "min": 0,
       "default": 10
     },
     "critical": {
@@ -61,14 +61,21 @@
       "default": 10,
       "max": 255,
       "required": true,
-      "min": 1
+      "min": 0
     },
     "haste": {
       "type": "integer",
       "required": true,
       "default": 10,
       "max": 255,
-      "min": 1
+      "min": 0
+    },
+    "luck": {
+      "max": 255,
+      "min": 0,
+      "required": true,
+      "type": "integer",
+      "default": 10
     }
   }
 }

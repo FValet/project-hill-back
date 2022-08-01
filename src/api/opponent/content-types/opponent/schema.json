@@ -16,6 +16,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
     "statistics": {
       "type": "component",
       "repeatable": false,

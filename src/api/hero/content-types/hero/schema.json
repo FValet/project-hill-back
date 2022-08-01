@@ -22,20 +22,27 @@
     "level": {
       "type": "integer",
       "required": true,
-      "max": 99,
+      "max": 100,
       "min": 1,
       "default": 1
-    },
-    "collected_xp": {
-      "type": "integer",
-      "required": true,
-      "max": 10000000,
-      "min": 0
     },
     "money": {
       "type": "integer",
       "max": 10000000,
       "required": true,
+      "min": 0
+    },
+    "current_heal_point": {
+      "default": 20,
+      "required": true,
+      "max": 9999,
+      "min": 0,
+      "type": "integer"
+    },
+    "collected_xp": {
+      "type": "integer",
+      "required": true,
+      "max": 10000000,
       "min": 0
     },
     "statistics": {

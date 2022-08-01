@@ -21,13 +21,15 @@
       "type": "integer",
       "required": true,
       "max": 100,
-      "min": 0
+      "min": 0,
+      "default": 0
     },
     "purchase_price": {
       "type": "integer",
       "required": true,
       "max": 1000000,
-      "min": 0
+      "min": 0,
+      "default": 0
     },
     "selling_price": {
       "type": "integer",

@@ -22,21 +22,23 @@
       "unique": true
     },
     "drop_rate": {
-      "type": "decimal"
+      "type": "decimal",
+      "max": 100,
+      "min": 0
     },
     "purchase_price": {
       "type": "biginteger",
       "required": true,
       "max": "1000000",
-      "min": "1",
-      "default": "1"
+      "min": "0",
+      "default": "0"
     },
     "selling_price": {
       "type": "biginteger",
-      "default": "1",
+      "default": "0",
       "required": true,
       "max": "1000000",
-      "min": "1"
+      "min": "0"
     },
     "inventory_quantity": {
       "type": "integer",
