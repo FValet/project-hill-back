@@ -21,6 +21,10 @@
       "required": true,
       "unique": true
     },
+    "icon": {
+      "type": "string",
+      "required": true
+    },
     "statistics": {
       "type": "component",
       "repeatable": false,

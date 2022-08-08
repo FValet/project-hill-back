@@ -44,7 +44,12 @@
       "type": "integer",
       "required": true,
       "max": 100,
-      "min": 0
+      "min": 0,
+      "default": 0
+    },
+    "icon": {
+      "type": "string",
+      "required": true
     }
   }
 }

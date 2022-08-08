@@ -39,10 +39,10 @@
       "required": true,
       "min": 1
     },
-    "award": {
+    "reward": {
       "type": "component",
       "repeatable": false,
-      "component": "feature.award"
+      "component": "feature.reward"
     },
     "area": {
       "type": "relation",
